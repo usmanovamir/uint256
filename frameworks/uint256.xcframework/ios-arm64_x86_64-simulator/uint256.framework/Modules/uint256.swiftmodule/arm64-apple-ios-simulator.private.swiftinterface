@@ -16,6 +16,7 @@ public func <<< (lhs: uint256.UInt256, rhs: Swift.Int) -> uint256.UInt256
 public func pow256(x: uint256.UInt256, y: uint256.UInt256) -> uint256.UInt256
 extension uint256.uint256_t {
   public init(data: Foundation.Data)
+  public init(ui64: Swift.UInt64)
   public func string(_ radix: Swift.UInt32 = 10) -> Swift.String
 }
 extension uint256.uint256_t : Swift.CustomStringConvertible {
@@ -25,7 +26,6 @@ extension uint256.uint256_t : Swift.CustomStringConvertible {
 }
 extension uint256.uint256_t : Swift.ExpressibleByIntegerLiteral {
   public typealias IntegerLiteralType = Swift.UInt64
-  public init(b_0_63: Swift.UInt64 = 0, b_64_127: Swift.UInt64 = 0, b_128_191: Swift.UInt64 = 0, b_192_255: Swift.UInt64 = 0)
   public init(integerLiteral value: Swift.UInt64)
 }
 extension uint256.uint256_t : Swift.Comparable {
