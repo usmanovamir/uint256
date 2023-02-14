@@ -1,0 +1,6 @@
+framework module uint256 {
+  umbrella header "uint256.h"
+
+  export *
+  module * { export * }
+}

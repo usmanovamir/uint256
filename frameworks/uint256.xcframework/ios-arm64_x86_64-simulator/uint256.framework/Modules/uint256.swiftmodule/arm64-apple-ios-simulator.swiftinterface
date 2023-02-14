@@ -1,0 +1,113 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Osize -module-name uint256
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Foundation
+import Swift
+import _Concurrency
+import _StringProcessing
+@_exported import uint256
+public typealias UInt256 = uint256.uint256_t
+public typealias UInt128 = uint256.uint128_t
+infix operator <<< : BitwiseShiftPrecedence
+infix operator >>> : BitwiseShiftPrecedence
+public func >>> (lhs: uint256.UInt256, rhs: Swift.Int) -> Swift.String
+public func <<< (lhs: uint256.UInt256, rhs: Swift.Int) -> uint256.UInt256
+public func pow256(x: uint256.UInt256, y: uint256.UInt256) -> uint256.UInt256
+extension uint256.uint256_t {
+  public init(data: Foundation.Data)
+  public func string(_ radix: Swift.UInt32 = 10) -> Swift.String
+}
+extension uint256.uint256_t : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension uint256.uint256_t : Swift.ExpressibleByIntegerLiteral {
+  public typealias IntegerLiteralType = Swift.UInt64
+  public init(b_0_63: Swift.UInt64 = 0, b_64_127: Swift.UInt64 = 0, b_128_191: Swift.UInt64 = 0, b_192_255: Swift.UInt64 = 0)
+  public init(integerLiteral value: Swift.UInt64)
+}
+extension uint256.uint256_t : Swift.Comparable {
+  public static func < (lhs: uint256.uint256_t, rhs: uint256.uint256_t) -> Swift.Bool
+  public static func == (lhs: uint256.uint256_t, rhs: uint256.uint256_t) -> Swift.Bool
+}
+extension uint256.uint256_t : Swift.Hashable {
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension uint256.uint256_t : Swift.AdditiveArithmetic {
+  public static func - (lhs: uint256.uint256_t, rhs: uint256.uint256_t) -> uint256.uint256_t
+  public static func + (lhs: uint256.uint256_t, rhs: uint256.uint256_t) -> uint256.uint256_t
+}
+extension uint256.uint256_t : Swift.Numeric {
+  public typealias Magnitude = uint256.UInt256
+  public var magnitude: uint256.UInt256 {
+    get
+  }
+  public init?<T>(exactly source: T) where T : Swift.BinaryInteger
+  public static func * (lhs: uint256.uint256_t, rhs: uint256.uint256_t) -> uint256.uint256_t
+  public static func *= (lhs: inout uint256.uint256_t, rhs: uint256.uint256_t)
+}
+extension uint256.uint256_t : Swift.BinaryInteger {
+  public typealias Words = [Swift.UInt]
+  public var words: [Swift.UInt] {
+    get
+  }
+  public init?<T>(exactly source: T) where T : Swift.BinaryFloatingPoint
+  public init<T>(_ source: T) where T : Swift.BinaryFloatingPoint
+  public init<T>(_ source: T) where T : Swift.BinaryInteger
+  public init<T>(truncatingIfNeeded source: T) where T : Swift.BinaryInteger
+  public init<T>(clamping source: T) where T : Swift.BinaryInteger
+  public static var isSigned: Swift.Bool {
+    get
+  }
+  public var bitWidth: Swift.Int {
+    get
+  }
+  public var trailingZeroBitCount: Swift.Int {
+    get
+  }
+  public static func / (lhs: uint256.uint256_t, rhs: uint256.uint256_t) -> uint256.uint256_t
+  public static func /= (lhs: inout uint256.uint256_t, rhs: uint256.uint256_t)
+  public static func % (lhs: uint256.uint256_t, rhs: uint256.uint256_t) -> uint256.uint256_t
+  public static func %= (lhs: inout uint256.uint256_t, rhs: uint256.uint256_t)
+  public static func & (lhs: uint256.UInt256, rhs: uint256.UInt256) -> uint256.UInt256
+  public static func &= (lhs: inout uint256.uint256_t, rhs: uint256.uint256_t)
+  public static func | (lhs: uint256.UInt256, rhs: uint256.UInt256) -> uint256.UInt256
+  public static func |= (lhs: inout uint256.uint256_t, rhs: uint256.uint256_t)
+  public static func ^ (lhs: uint256.uint256_t, rhs: uint256.uint256_t) -> uint256.uint256_t
+  public static func ^= (lhs: inout uint256.uint256_t, rhs: uint256.uint256_t)
+  prefix public static func ~ (x: uint256.uint256_t) -> uint256.uint256_t
+  public static func >> <RHS>(lhs: uint256.uint256_t, rhs: RHS) -> uint256.uint256_t where RHS : Swift.BinaryInteger
+  public static func << <RHS>(lhs: uint256.uint256_t, rhs: RHS) -> uint256.uint256_t where RHS : Swift.BinaryInteger
+  public static func >>= <RHS>(lhs: inout uint256.uint256_t, rhs: RHS) where RHS : Swift.BinaryInteger
+  public static func <<= <RHS>(lhs: inout uint256.uint256_t, rhs: RHS) where RHS : Swift.BinaryInteger
+  public func quotientAndRemainder(dividingBy rhs: uint256.uint256_t) -> (quotient: uint256.uint256_t, remainder: uint256.uint256_t)
+  public typealias Stride = Swift.Int
+}
+extension uint256.uint256_t : Swift.UnsignedInteger {
+}
+extension uint256.uint256_t : Swift.FixedWidthInteger {
+  public static var bitWidth: Swift.Int {
+    get
+  }
+  public func addingReportingOverflow(_ rhs: uint256.uint256_t) -> (partialValue: uint256.uint256_t, overflow: Swift.Bool)
+  public func subtractingReportingOverflow(_ rhs: uint256.uint256_t) -> (partialValue: uint256.uint256_t, overflow: Swift.Bool)
+  public func multipliedReportingOverflow(by rhs: uint256.uint256_t) -> (partialValue: uint256.uint256_t, overflow: Swift.Bool)
+  public func dividedReportingOverflow(by rhs: uint256.uint256_t) -> (partialValue: uint256.uint256_t, overflow: Swift.Bool)
+  public func remainderReportingOverflow(dividingBy rhs: uint256.uint256_t) -> (partialValue: uint256.uint256_t, overflow: Swift.Bool)
+  public func dividingFullWidth(_ dividend: (high: uint256.uint256_t, low: uint256.UInt256)) -> (quotient: uint256.uint256_t, remainder: uint256.uint256_t)
+  public var nonzeroBitCount: Swift.Int {
+    get
+  }
+  public var leadingZeroBitCount: Swift.Int {
+    get
+  }
+  public var byteSwapped: uint256.uint256_t {
+    get
+  }
+  public init(_truncatingBits: Swift.UInt)
+}
