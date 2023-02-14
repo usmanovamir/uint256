@@ -11,7 +11,7 @@ let package = Package(
     products: [
         .library(
             name: "uint256",
-            targets: ["AUInt256"]
+            targets: ["uint256"]
         ),
     ],
     targets: [
